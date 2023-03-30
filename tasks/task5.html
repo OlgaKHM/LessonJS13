@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Задача 5</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h2>Задача 5.</h2>
+      <p>
+        Тренажер додавання. Кожні 10 секунд користувачу задають випадковий
+        приклад з додавання двох цифр і робиться перевірка.
+      </p>
+    </div>
+    <script>
+      function getRandomNumber(maxNumber) {
+        return Math.floor(Math.random() * maxNumber) + 1
+      }
+      function simulatorSum(maxNumber) {
+        let num1 = getRandomNumber(maxNumber)
+        let num2 = getRandomNumber(maxNumber)
+        let res
+        const sum = num1 + num2
+        const userSum = parseInt(prompt(`скільки буде ${num1} + ${num2} ?`))
+        if (sum === userSum) res = alert("відповідь вірна")
+        else res = alert(`відповідь не вірна, сума складає  ${sum}`)
+        return res
+      }
+
+      setInterval(() => simulatorSum(100), 10000)
+    </script>
+  </body>
+</html>

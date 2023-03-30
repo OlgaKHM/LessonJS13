@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Задача 2</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h2>Задача 2.</h2>
+      <p>
+        Нехай X<sub>0</sub> = X<sub>1</sub> = 1, X<sub>i</sub> = X<sub
+          >i - 1</sub
+        >
+        + 2X<sub>i - 2</sub>, де i = 2,3,... . Визначити X<sub>n</sub>.
+        Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів.
+      </p>
+    </div>
+    <script>
+      const number = parseInt(prompt("Введіть число n", "10"))
+      function recursiveMethod(i) {
+        if (i === 0 || i === 1) return 1
+        else return recursiveMethod(i - 1) + 2 * recursiveMethod(i - 2)
+      }
+      let recursiv = recursiveMethod(number)
+      document.write(
+        `<h3>з використанням рекурсивних алгоритмів : ${recursiv}</h3>`
+      )
+
+      function nonRecursiveMethod(i) {
+        if (i === 0 || i === 1) return 1
+        else {
+          let f_i_1 = (f_i_2 = 1)
+          let f_i
+          for (let index = 2; index <= i; index++) {
+            f_i = f_i_1 + 2 * f_i_2
+            f_i_2 = f_i_1
+            f_i_1 = f_i
+          }
+          return f_i
+        }
+      }
+      let nonRecursiv = nonRecursiveMethod(number)
+      document.write(
+        `<h3>з використанням нерекурсивних алгоритмів : ${nonRecursiv}</h3>`
+      )
+    </script>
+  </body>
+</html>
